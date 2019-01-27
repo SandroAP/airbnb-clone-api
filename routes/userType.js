@@ -75,7 +75,7 @@ router.put('/:id', isAuthenticated, (req, res, next) => {
 });
 
 // DELETE /:id
-router.delete('/:id', (req, res, next) => {
+router.delete('/:id', isAuthenticated, (req, res, next) => {
   UserTypeModel.findOneAndDelete({
     _id: req.params.id
   }).then(doc => {
